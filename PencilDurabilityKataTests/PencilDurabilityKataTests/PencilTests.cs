@@ -114,6 +114,12 @@ namespace PencilDurabilityKataTests
             Assert.AreEqual(0, pencil.getEraserDurability());
         }
 
-        
+        [TestMethod]
+        public void whenEraserDurabilityIsZeroErasingStops()
+        {
+            pencil = new Pencil(5, 1, 8);
+
+            Assert.AreEqual("Reduce Du        ", pencil.erase(" Durability", "Reduce Durability"));
+        }
     }
 }
