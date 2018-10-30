@@ -75,11 +75,24 @@
                 return startingString;
 
             int index = startingString.LastIndexOf(toErase);
-            string blanks = new string(' ', toErase.Length);
 
-            eraserDurability--;
+            string stringSection = startingString.Substring(index, toErase.Length);
 
-            return startingString.Remove(index, toErase.Length).Insert(index, blanks);
+            char[] sectionArray = stringSection.ToCharArray();
+
+            for (int i = sectionArray.Length - 1; i > -1; i--)
+            {
+                if (eraserDurability <= 0)
+                    break;
+
+                if (sectionArray[i] != ' ')
+                    eraserDurability--;
+                sectionArray[i] = ' ';
+            }
+
+            stringSection = new string(sectionArray);            
+
+            return startingString.Remove(index, toErase.Length).Insert(index, stringSection);
         }
 
     }

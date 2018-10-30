@@ -105,9 +105,9 @@ namespace PencilDurabilityKataTests
         }
 
         [TestMethod]
-        public void whenEraserIsUsedDegradeEraserDurability()
+        public void whenEraserIsUsedDegradeEraserDurabilityByOnePerCharacter()
         {
-            pencil = new Pencil(5, 1, 1);
+            pencil = new Pencil(5, 1, 10);
 
             pencil.erase("Durability", "Reduce Durability");
 
