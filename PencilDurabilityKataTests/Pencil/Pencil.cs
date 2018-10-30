@@ -6,13 +6,20 @@ namespace PencilLibrary
     {
         
         private int durability = 0;
-
+        private int maxDurability = 0;
 
       
         public Pencil(int durability)
         {
             this.durability = durability;
+            maxDurability = durability;
         }
+
+
+        public int getDurability() => durability;
+
+        public int getMaxDurability() => maxDurability;
+
 
         public string write(string WritingString, string StartingString = "")
         {
@@ -31,7 +38,10 @@ namespace PencilLibrary
             return output;
         }
 
-        public int getDurability() => durability;
+       public void sharpen()
+        {
+            durability = maxDurability;
+        }
 
     }
 }

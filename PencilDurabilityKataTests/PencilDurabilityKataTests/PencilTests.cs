@@ -46,5 +46,16 @@ namespace PencilDurabilityKataTests
             Assert.AreEqual(94, pencil.getDurability());
 
         }
+
+        [TestMethod]
+        public void PencilDurabilityResetsWhenSharpened()
+        {
+            pencil.write("fubdfniebibnasdA");
+
+            pencil.sharpen();
+
+            Assert.AreEqual(100, pencil.getMaxDurability());
+            Assert.AreEqual(100, pencil.getDurability());
+        }
     }
 }
