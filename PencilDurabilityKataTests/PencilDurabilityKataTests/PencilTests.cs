@@ -109,9 +109,11 @@ namespace PencilDurabilityKataTests
         {
             pencil = new Pencil(5, 1, 10);
 
-            pencil.erase("Durability", "Reduce Durability");
+            pencil.erase(" Durability", "Reduce Durability");
 
             Assert.AreEqual(0, pencil.getEraserDurability());
         }
+
+        
     }
 }
