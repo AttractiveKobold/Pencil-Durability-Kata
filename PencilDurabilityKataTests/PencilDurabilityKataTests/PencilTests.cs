@@ -15,13 +15,13 @@ namespace PencilDurabilityKataTests
         }
 
         [TestMethod]
-        public void PencilAppendsTextToTheEndOfTheGivenString()
+        public void whenPencilIsPassedTwoStringsItAppendsTheFirstStringOntoTheSecondString()
         {
             Assert.AreEqual("Some Test Words", pencil.write("Some Test Words", ""));
         }
 
         [TestMethod]
-        public void PencilDurabilityDegradesByOneWhenWritingALowercaseLetter()
+        public void whenALowercaseLetterIsWrittenDurabilityDegradesByOne()
         {
 
             pencil.write("  a b \n ");
@@ -34,7 +34,7 @@ namespace PencilDurabilityKataTests
         }
 
         [TestMethod]
-        public void PencilDurabilityDegradesByTwoWhenWritingUppercaseLetter()
+        public void whenAnUppercaseLetterIsWrittenDurabilityDegradesByTwo()
         {
 
             pencil.write("A \nB");
@@ -48,7 +48,7 @@ namespace PencilDurabilityKataTests
         }
 
         [TestMethod]
-        public void PencilDurabilityResetsWhenSharpened()
+        public void whenSharpenedDurabilityIsReset()
         {
             pencil.write("fubdfniebibnasdA");
 
@@ -59,7 +59,7 @@ namespace PencilDurabilityKataTests
         }
 
         [TestMethod]
-        public void PencilWritesBlanksIfThereIsNotEnoughDurability()
+        public void whenThereIsNotEnoughDurabilityABlankIsWritten()
         {
             pencil = new Pencil(5);
 
