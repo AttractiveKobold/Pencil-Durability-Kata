@@ -11,7 +11,7 @@ namespace PencilDurabilityKataTests
         [TestInitialize]
         public void testInit()
         {
-            pencil = new Pencil(100);
+            pencil = new Pencil(100, 100);
         }
 
         [TestMethod]
@@ -61,11 +61,23 @@ namespace PencilDurabilityKataTests
         [TestMethod]
         public void whenThereIsNotEnoughDurabilityABlankIsWritten()
         {
-            pencil = new Pencil(5);
+            pencil = new Pencil(5, 0);
 
             Assert.AreEqual("abcd f  ", pencil.write("abcdEfgh"));
 
             
+        }
+
+        [TestMethod]
+        public void whenPencilIsSharpenedLengthIsReducedByOne()
+        {
+            pencil = new Pencil(5, 1);
+
+            pencil.write("aaaaa");
+            pencil.sharpen();
+            
+            Assert.AreEqual(0, pencil.getLength());
+
         }
     }
 }
