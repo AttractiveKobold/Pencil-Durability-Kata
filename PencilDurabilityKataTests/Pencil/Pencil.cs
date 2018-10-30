@@ -1,28 +1,30 @@
-﻿using System;
-
-namespace PencilLibrary
+﻿namespace PencilLibrary
 {
     public class Pencil
     {
 
-        private int durability = 0;
+        private int pointDurability = 0;
         private int maxDurability = 0;
         private int length = 0;
+        private int eraserDurability = 0;
 
 
-        public Pencil(int durability, int length)
+        public Pencil(int pointDurability, int length, int eraserDurability)
         {
-            this.durability = durability;
-            maxDurability = durability;
+            this.pointDurability = pointDurability;
+            this.maxDurability = pointDurability;
             this.length = length;
+            this.eraserDurability = eraserDurability;
         }
 
 
-        public int getDurability() => durability;
+        public int getPointDurability() => pointDurability;
 
         public int getMaxDurability() => maxDurability;
 
         public int getLength() => length;
+
+        public int getEraserDurability() => eraserDurability;
 
 
         public string write(string toWrite, string startingString = "")
@@ -33,8 +35,8 @@ namespace PencilLibrary
             {
                 if (char.IsUpper(c))
                 {
-                    if (durability >= 2)
-                        durability -= 2;
+                    if (pointDurability >= 2)
+                        pointDurability -= 2;
                     else
                     {
                         output += ' ';
@@ -43,8 +45,8 @@ namespace PencilLibrary
                 }
                 else if (char.IsLower(c))
                 {
-                    if (durability >= 1)
-                        durability -= 1;
+                    if (pointDurability >= 1)
+                        pointDurability -= 1;
                     else
                     {
                         output += ' ';
@@ -62,8 +64,8 @@ namespace PencilLibrary
         {
             if (length > 0)
             {
-                durability = maxDurability;
-                length -= 1;
+                pointDurability = maxDurability;
+                length--;
             }
         }
 
@@ -74,6 +76,8 @@ namespace PencilLibrary
 
             int index = startingString.LastIndexOf(toErase);
             string blanks = new string(' ', toErase.Length);
+
+            eraserDurability--;
 
             return startingString.Remove(index, toErase.Length).Insert(index, blanks);
         }

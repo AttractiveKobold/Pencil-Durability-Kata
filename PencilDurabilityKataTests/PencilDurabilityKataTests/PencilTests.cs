@@ -11,7 +11,7 @@ namespace PencilDurabilityKataTests
         [TestInitialize]
         public void testInit()
         {
-            pencil = new Pencil(100, 100);
+            pencil = new Pencil(100, 100, 100);
         }
 
         [TestMethod]
@@ -26,11 +26,11 @@ namespace PencilDurabilityKataTests
 
             pencil.write("  a b \n ");
 
-            Assert.AreEqual(98, pencil.getDurability());
+            Assert.AreEqual(98, pencil.getPointDurability());
 
             pencil.write("  c   ");
 
-            Assert.AreEqual(97, pencil.getDurability());
+            Assert.AreEqual(97, pencil.getPointDurability());
         }
 
         [TestMethod]
@@ -39,11 +39,11 @@ namespace PencilDurabilityKataTests
 
             pencil.write("A \nB");
 
-            Assert.AreEqual(96, pencil.getDurability());
+            Assert.AreEqual(96, pencil.getPointDurability());
 
             pencil.write(" C   ");
 
-            Assert.AreEqual(94, pencil.getDurability());
+            Assert.AreEqual(94, pencil.getPointDurability());
 
         }
 
@@ -55,13 +55,13 @@ namespace PencilDurabilityKataTests
             pencil.sharpen();
 
             Assert.AreEqual(100, pencil.getMaxDurability());
-            Assert.AreEqual(100, pencil.getDurability());
+            Assert.AreEqual(100, pencil.getPointDurability());
         }
 
         [TestMethod]
         public void whenThereIsNotEnoughDurabilityABlankIsWritten()
         {
-            pencil = new Pencil(5, 0);
+            pencil = new Pencil(5, 0, 0);
 
             Assert.AreEqual("abcd f  ", pencil.write("abcdEfgh"));
 
@@ -71,7 +71,7 @@ namespace PencilDurabilityKataTests
         [TestMethod]
         public void whenPencilIsSharpenedLengthIsReducedByOne()
         {
-            pencil = new Pencil(5, 1);
+            pencil = new Pencil(5, 1, 0);
 
             pencil.write("aaaaa");
             pencil.sharpen();
@@ -83,7 +83,7 @@ namespace PencilDurabilityKataTests
         [TestMethod]
         public void whenPencilLengthIsZeroPencilCannotBeSharpened()
         {
-            pencil = new Pencil(5, 0);
+            pencil = new Pencil(5, 0, 0);
 
             pencil.write("aaaaa");
             pencil.sharpen();
@@ -102,6 +102,16 @@ namespace PencilDurabilityKataTests
         public void whenGivenAStringToEraseThatIsNotInTheStartingStringReturnTheStartingString()
         {
             Assert.AreEqual("Nothing should erase", pencil.erase("bacon", "Nothing should erase"));
+        }
+
+        [TestMethod]
+        public void whenEraserIsUsedDegradeEraserDurability()
+        {
+            pencil = new Pencil(5, 1, 1);
+
+            pencil.erase("Durability", "Reduce Durability");
+
+            Assert.AreEqual(0, pencil.getEraserDurability());
         }
     }
 }
