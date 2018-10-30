@@ -79,5 +79,17 @@ namespace PencilDurabilityKataTests
             Assert.AreEqual(0, pencil.getLength());
 
         }
+
+        [TestMethod]
+        public void whenPencilLengthIsZeroPencilCannotBeSharpened()
+        {
+            pencil = new Pencil(5, 0);
+
+            pencil.write("aaaaa");
+            pencil.sharpen();
+            
+            Assert.AreEqual("     ", pencil.write("aaaaa"));
+
+        }
     }
 }

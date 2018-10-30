@@ -4,12 +4,12 @@ namespace PencilLibrary
 {
     public class Pencil
     {
-        
+
         private int durability = 0;
         private int maxDurability = 0;
         private int length = 0;
 
-      
+
         public Pencil(int durability, int length)
         {
             this.durability = durability;
@@ -32,11 +32,11 @@ namespace PencilLibrary
             foreach (char c in WritingString)
             {
                 if (char.IsUpper(c))
-                { 
+                {
                     if (durability >= 2)
                         durability -= 2;
                     else
-                    { 
+                    {
                         output += ' ';
                         continue;
                     }
@@ -58,10 +58,13 @@ namespace PencilLibrary
             return output;
         }
 
-       public void sharpen()
+        public void sharpen()
         {
-            durability = maxDurability;
-            length -= 1;
+            if (length > 0)
+            {
+                durability = maxDurability;
+                length -= 1;
+            }
         }
 
     }
