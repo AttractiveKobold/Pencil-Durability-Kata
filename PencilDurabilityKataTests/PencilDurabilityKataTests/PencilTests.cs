@@ -97,5 +97,11 @@ namespace PencilDurabilityKataTests
         {
             Assert.AreEqual("Erase last instance of word          in this string", pencil.erase("instance", "Erase last instance of word instance in this string"));
         }
+
+        [TestMethod]
+        public void whenGivenAStringToEraseThatIsNotInTheStartingStringReturnTheStartingString()
+        {
+            Assert.AreEqual("Nothing should erase", pencil.erase("bacon", "Nothing should erase"));
+        }
     }
 }

@@ -69,6 +69,9 @@ namespace PencilLibrary
 
         public string erase(string toErase, string startingString)
         {
+            if (!startingString.Contains(toErase))
+                return startingString;
+
             int index = startingString.LastIndexOf(toErase);
             string blanks = new string(' ', toErase.Length);
 
