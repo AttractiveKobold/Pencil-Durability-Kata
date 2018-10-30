@@ -17,7 +17,7 @@ namespace PencilDurabilityKataTests
         [TestMethod]
         public void whenPencilIsPassedTwoStringsItAppendsTheFirstStringOntoTheSecondString()
         {
-            Assert.AreEqual("Some Test Words", pencil.write("Some Test Words", ""));
+            Assert.AreEqual("aaaSome Test Words", pencil.write("Some Test Words", "aaa"));
         }
 
         [TestMethod]
