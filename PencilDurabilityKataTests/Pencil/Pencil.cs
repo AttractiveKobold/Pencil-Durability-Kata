@@ -21,5 +21,6 @@ namespace PencilLibrary
         }
 
         public int getDurability() => durability;
+
     }
 }
