@@ -57,5 +57,15 @@ namespace PencilDurabilityKataTests
             Assert.AreEqual(100, pencil.getMaxDurability());
             Assert.AreEqual(100, pencil.getDurability());
         }
+
+        [TestMethod]
+        public void PencilWritesBlanksIfThereIsNotEnoughDurability()
+        {
+            pencil = new Pencil(5);
+
+            Assert.AreEqual("abcd f  ", pencil.write("abcdEfgh"));
+
+            
+        }
     }
 }

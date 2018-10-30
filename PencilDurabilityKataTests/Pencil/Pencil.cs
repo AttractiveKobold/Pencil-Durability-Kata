@@ -28,9 +28,25 @@ namespace PencilLibrary
             foreach (char c in WritingString)
             {
                 if (char.IsUpper(c))
-                    durability -= 2;
+                { 
+                    if (durability >= 2)
+                        durability -= 2;
+                    else
+                    { 
+                        output += ' ';
+                        continue;
+                    }
+                }
                 else if (char.IsLower(c))
-                    durability -=1;
+                {
+                    if (durability >= 1)
+                        durability -= 1;
+                    else
+                    {
+                        output += ' ';
+                        continue;
+                    }
+                }
 
                 output += c;
             }
