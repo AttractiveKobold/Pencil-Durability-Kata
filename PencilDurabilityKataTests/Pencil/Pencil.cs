@@ -16,8 +16,19 @@ namespace PencilLibrary
 
         public string write(string WritingString, string StartingString = "")
         {
-            durability -= WritingString.Length;
-            return StartingString + WritingString;
+            string output = StartingString;
+
+            foreach (char c in WritingString)
+            {
+                if (char.IsUpper(c))
+                    durability -= 2;
+                else if (char.IsLower(c))
+                    durability -=1;
+
+                output += c;
+            }
+
+            return output;
         }
 
         public int getDurability() => durability;

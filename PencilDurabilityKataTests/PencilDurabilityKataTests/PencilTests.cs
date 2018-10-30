@@ -36,9 +36,15 @@ namespace PencilDurabilityKataTests
         [TestMethod]
         public void PencilDurabilityDegradesByTwoWhenWritingUppercaseLetter()
         {
-            
 
-            
+            pencil.write("AB");
+
+            Assert.AreEqual(96, pencil.getDurability());
+
+            pencil.write("C");
+
+            Assert.AreEqual(94, pencil.getDurability());
+
         }
     }
 }
