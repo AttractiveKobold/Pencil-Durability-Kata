@@ -27,6 +27,7 @@
         public int getEraserDurability() => eraserDurability;
 
 
+        //TODO: Check email for answer about point durability degredation when writing non-character letters
         public string write(string toWrite, string startingString = "")
         {
             string output = startingString;
