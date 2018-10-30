@@ -25,11 +25,11 @@ namespace PencilLibrary
         public int getLength() => length;
 
 
-        public string write(string WritingString, string StartingString = "")
+        public string write(string toWrite, string startingString = "")
         {
-            string output = StartingString;
+            string output = startingString;
 
-            foreach (char c in WritingString)
+            foreach (char c in toWrite)
             {
                 if (char.IsUpper(c))
                 {
@@ -65,6 +65,14 @@ namespace PencilLibrary
                 durability = maxDurability;
                 length -= 1;
             }
+        }
+
+        public string erase(string toErase, string startingString)
+        {
+            int index = startingString.LastIndexOf(toErase);
+            string blanks = new string(' ', toErase.Length);
+
+            return startingString.Remove(index, toErase.Length).Insert(index, blanks);
         }
 
     }

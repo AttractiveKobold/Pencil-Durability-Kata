@@ -91,5 +91,11 @@ namespace PencilDurabilityKataTests
             Assert.AreEqual("     ", pencil.write("aaaaa"));
 
         }
+
+        [TestMethod]
+        public void whenGivenTwoStringsReplaceTheLastInstanceOfTheFirstStringInTheSecondStringWithBlankSpaces()
+        {
+            Assert.AreEqual("Erase last instance of word          in this string", pencil.erase("instance", "Erase last instance of word instance in this string"));
+        }
     }
 }
