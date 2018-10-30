@@ -24,11 +24,11 @@ namespace PencilDurabilityKataTests
         public void PencilDurabilityDegradesByOneWhenWritingALowercaseLetter()
         {
 
-            pencil.write("ab");
+            pencil.write("  a b \n ");
 
             Assert.AreEqual(98, pencil.getDurability());
 
-            pencil.write("c");
+            pencil.write("  c   ");
 
             Assert.AreEqual(97, pencil.getDurability());
         }
@@ -37,11 +37,11 @@ namespace PencilDurabilityKataTests
         public void PencilDurabilityDegradesByTwoWhenWritingUppercaseLetter()
         {
 
-            pencil.write("AB");
+            pencil.write("A \nB");
 
             Assert.AreEqual(96, pencil.getDurability());
 
-            pencil.write("C");
+            pencil.write(" C   ");
 
             Assert.AreEqual(94, pencil.getDurability());
 
