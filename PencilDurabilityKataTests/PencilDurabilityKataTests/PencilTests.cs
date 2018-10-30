@@ -11,7 +11,7 @@ namespace PencilDurabilityKataTests
         {
             Pencil pencil = new Pencil();
 
-            Assert.AreEqual("Some Test Words", pencil.write("Some Test Words"));
+            Assert.AreEqual("Some Test Words", pencil.write("", "Some Test Words"));
         }
     }
 }

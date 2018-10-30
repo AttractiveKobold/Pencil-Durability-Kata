@@ -4,9 +4,9 @@ namespace PencilLibrary
 {
     public class Pencil
     {
-        public string write(string input)
+        public string write(string StartingString, string WritingString)
         {
-            return "Some Test Words";
+            return StartingString + WritingString;
         }
     }
 }
