@@ -27,7 +27,7 @@
         public int getEraserDurability() => eraserDurability;
 
 
-        public string write(string toWrite, string startingString = "")
+        public string Write(string toWrite, string startingString = "")
         {
             string output = startingString;
 
@@ -64,7 +64,7 @@
             return output;
         }
 
-        public void sharpen()
+        public void Sharpen()
         {
             if (length > 0)
             {
@@ -73,7 +73,7 @@
             }
         }
 
-        public string erase(string toErase, string startingString)
+        public string Erase(string toErase, string startingString)
         {
             if (!startingString.Contains(toErase))
                 return startingString;
@@ -99,7 +99,7 @@
             return startingString.Remove(index, toErase.Length).Insert(index, stringSection);
         }
 
-        public string edit(string toWrite, string startingString, int n = 1)
+        public string Edit(string toWrite, string startingString, int n = 1)
         {
             int index = startingString.IndexOf("  ") + 1;
             n--;
