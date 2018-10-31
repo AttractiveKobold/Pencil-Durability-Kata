@@ -52,7 +52,7 @@ namespace PencilDurabilityKataTests
         {
             pencil.Write("fubdfniebibnasdA");
 
-            pencil.sharpen();
+            pencil.Sharpen();
 
             Assert.AreEqual(100, pencil.getMaxDurability());
             Assert.AreEqual(100, pencil.getPointDurability());
@@ -74,7 +74,7 @@ namespace PencilDurabilityKataTests
             pencil = new Pencil(5, 1, 0);
 
             pencil.Write("aaaaa");
-            pencil.sharpen();
+            pencil.Sharpen();
             
             Assert.AreEqual(0, pencil.getLength());
 
@@ -86,7 +86,7 @@ namespace PencilDurabilityKataTests
             pencil = new Pencil(5, 0, 0);
 
             pencil.Write("aaaaa");
-            pencil.sharpen();
+            pencil.Sharpen();
             
             Assert.AreEqual("     ", pencil.Write("aaaaa"));
 
