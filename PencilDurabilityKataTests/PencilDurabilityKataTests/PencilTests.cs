@@ -147,5 +147,13 @@ namespace PencilDurabilityKataTests
             pencil.edit("Test", "Edit      Complete");
             Assert.AreEqual(96, pencil.getPointDurability());
         }
+
+        [TestMethod]
+        public void whenPointDurabilityIsAtZeroEditingStops()
+        {
+            pencil = new Pencil(3, 0, 0);
+
+            Assert.AreEqual("Edit Tes  Complete", pencil.edit("Test", "Edit      Complete"));
+        }
     }
 }

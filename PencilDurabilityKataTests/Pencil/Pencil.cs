@@ -111,6 +111,9 @@
 
             for (int i = index; i < (index + writeArray.Length); i++)
             {
+                if(pointDurability == 0)
+                    break;
+
                 if (startArray[i] == ' ')
                     startArray[i] = writeArray[j];
                 else
