@@ -155,5 +155,11 @@ namespace PencilDurabilityKataTests
 
             Assert.AreEqual("Edit Tes  Complete", pencil.edit("Test", "Edit      Complete"));
         }
+
+        [TestMethod]
+        public void whenPassedIntegerNEditWillEditTheNthBlankSpace()
+        {
+            Assert.AreEqual("Edit      Complete Test Again", pencil.edit("Test", "Edit      Complete      Again", 2));
+        }
     }
 }

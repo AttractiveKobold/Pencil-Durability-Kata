@@ -99,17 +99,33 @@
             return startingString.Remove(index, toErase.Length).Insert(index, stringSection);
         }
 
-        //TODO: Check email for clarification on this method
-        public string edit(string toWrite, string startingString)
+        public string edit(string toWrite, string startingString, int n = 1)
         {
             int index = startingString.IndexOf("  ") + 1;
+            n--;
+
+            while (n > 0)
+            {
+                for (int i = index; i < startingString.Length - 1; i++)
+                {
+                    if (!char.IsWhiteSpace(startingString[i]))
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+
+                index = startingString.IndexOf("  ", index) + 1;
+
+                n--;
+            }
             
             char[] startArray = startingString.ToCharArray();
             char[] writeArray = toWrite.ToCharArray();
 
             int j = 0;
 
-            for (int i = index; i < (index + writeArray.Length); i++)
+            for (int i = index; i < (index + writeArray.Length) && i < startingString.Length - 1; i++)
             {
                 if(pointDurability == 0)
                     break;
