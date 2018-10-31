@@ -121,5 +121,11 @@ namespace PencilDurabilityKataTests
 
             Assert.AreEqual("Reduce Du        ", pencil.erase(" Durability", "Reduce Durability"));
         }
+
+        [TestMethod]
+        public void whenGivenAStringEditWritesThatStringInTheFirstBlankSpace()
+        {
+            Assert.AreEqual("Edit Test Complete", pencil.edit("Test", "Edit      Complete"));
+        }
     }
 }

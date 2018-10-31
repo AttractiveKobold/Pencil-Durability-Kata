@@ -96,5 +96,22 @@
             return startingString.Remove(index, toErase.Length).Insert(index, stringSection);
         }
 
+        public string edit(string toWrite, string startingString)
+        {
+            int index = startingString.IndexOf("  ") + 1;
+            
+            char[] startArray = startingString.ToCharArray();
+            char[] writeArray = toWrite.ToCharArray();
+
+            int j = 0;
+
+            for (int i = index; i < (index + writeArray.Length); i++)
+            {
+                startArray[i] = writeArray[j];
+                j++;
+            }
+
+            return new string(startArray);
+        }
     }
 }
