@@ -45,7 +45,7 @@
                 }
                 else if (c == ' ' || c == '\n')
                 {
-                    //in this case do nothing
+                    //do nothing because ' ' and '\n' do not degrade point durability
                 }
                 else
                 {
