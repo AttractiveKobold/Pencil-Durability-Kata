@@ -27,7 +27,6 @@
         public int getEraserDurability() => eraserDurability;
 
 
-        //TODO: Check email for answer about point durability degredation when writing non-character letters
         public string write(string toWrite, string startingString = "")
         {
             string output = startingString;
@@ -44,7 +43,11 @@
                         continue;
                     }
                 }
-                else if (char.IsLower(c))
+                else if (c == ' ' || c == '\n')
+                {
+                    //in this case do nothing
+                }
+                else
                 {
                     if (pointDurability >= 1)
                         pointDurability -= 1;
@@ -96,6 +99,7 @@
             return startingString.Remove(index, toErase.Length).Insert(index, stringSection);
         }
 
+        //TODO: Check email for clarification on this method
         public string edit(string toWrite, string startingString)
         {
             int index = startingString.IndexOf("  ") + 1;
