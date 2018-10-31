@@ -116,6 +116,8 @@
                 else
                     startArray[i] = '@';
 
+                pointDurability--;
+
                 j++;
             }
 

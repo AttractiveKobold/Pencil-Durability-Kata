@@ -140,5 +140,12 @@ namespace PencilDurabilityKataTests
             pencil.write("!1,./'-_=0");
             Assert.AreEqual(90, pencil.getPointDurability());
         }
+
+        [TestMethod]
+        public void whenEditingAPaperPointStillDegrades()
+        {
+            pencil.edit("Test", "Edit      Complete");
+            Assert.AreEqual(96, pencil.getPointDurability());
+        }
     }
 }
