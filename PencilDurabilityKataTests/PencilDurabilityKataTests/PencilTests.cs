@@ -133,5 +133,12 @@ namespace PencilDurabilityKataTests
         {
             Assert.AreEqual("This is no@ight", pencil.edit("not", "This is   right"));
         }
+
+        [TestMethod]
+        public void whenNonLetterCharactersAreWrittenPointDurabilityDegradesByOne()
+        {
+            pencil.write("!1,./'-_=0");
+            Assert.AreEqual(90, pencil.getPointDurability());
+        }
     }
 }
