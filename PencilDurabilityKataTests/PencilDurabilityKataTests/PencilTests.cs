@@ -127,5 +127,11 @@ namespace PencilDurabilityKataTests
         {
             Assert.AreEqual("Edit Test Complete", pencil.edit("Test", "Edit      Complete"));
         }
+
+        [TestMethod]
+        public void whenEditingASpaceWithAStringThatIsTooLongUseTheAtSymbolInstead()
+        {
+            Assert.AreEqual("This is no@ight", pencil.edit("not", "This is   right"));
+        }
     }
 }

@@ -107,7 +107,11 @@
 
             for (int i = index; i < (index + writeArray.Length); i++)
             {
-                startArray[i] = writeArray[j];
+                if (startArray[i] == ' ')
+                    startArray[i] = writeArray[j];
+                else
+                    startArray[i] = '@';
+
                 j++;
             }
 
