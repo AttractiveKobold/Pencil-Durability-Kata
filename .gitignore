@@ -1,0 +1,12 @@
+!PencilKata.exe
+!nunit.framework.dll
+!nunit.framework.pdb
+!nunitlite.dll
+!nunitlite.pdb
+!Pencil.dll
+!Pencil.pdb
+!PencilKata.pdb
+NUnit.3.11.0
+Release
+TestResult.xml
+packages/
