@@ -94,7 +94,7 @@
                 sectionArray[i] = ' ';
             }
 
-            stringSection = new string(sectionArray);            
+            stringSection = new string(sectionArray);
 
             return startingString.Remove(index, toErase.Length).Insert(index, stringSection);
         }
@@ -119,7 +119,7 @@
 
                 n--;
             }
-            
+
             char[] startArray = startingString.ToCharArray();
             char[] writeArray = toWrite.ToCharArray();
 
@@ -127,7 +127,7 @@
 
             for (int i = index; i < (index + writeArray.Length) && i < startingString.Length - 1; i++)
             {
-                if(pointDurability == 0)
+                if (pointDurability == 0)
                     break;
 
                 if (startArray[i] == ' ')

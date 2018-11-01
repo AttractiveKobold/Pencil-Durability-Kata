@@ -1,26 +1,39 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using NUnit.Framework;
+using NUnitLite;
 using PencilLibrary;
 
-namespace PencilDurabilityKataTests
+namespace PencilKata
 {
-    [TestClass]
-    public class PencilTests
+    [TestFixture]
+    class PencilTests
     {
         Pencil pencil;
 
-        [TestInitialize]
+        static void Main(string[] args)
+        {
+            new AutoRun().Execute(args);
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
+        }
+
+        [SetUp]
         public void testInit()
         {
             pencil = new Pencil(100, 100, 100);
         }
 
-        [TestMethod]
+        [Test]
         public void whenPencilIsPassedTwoStringsItAppendsTheFirstStringOntoTheSecondString()
         {
             Assert.AreEqual("aaaSome Test Words", pencil.Write("Some Test Words", "aaa"));
         }
 
-        [TestMethod]
+        [Test]
         public void whenALowercaseLetterIsWrittenDurabilityDegradesByOne()
         {
 
@@ -33,7 +46,7 @@ namespace PencilDurabilityKataTests
             Assert.AreEqual(97, pencil.getPointDurability());
         }
 
-        [TestMethod]
+        [Test]
         public void whenAnUppercaseLetterIsWrittenDurabilityDegradesByTwo()
         {
 
@@ -47,7 +60,7 @@ namespace PencilDurabilityKataTests
 
         }
 
-        [TestMethod]
+        [Test]
         public void whenSharpenedDurabilityIsReset()
         {
             pencil.Write("fubdfniebibnasdA");
@@ -58,53 +71,53 @@ namespace PencilDurabilityKataTests
             Assert.AreEqual(100, pencil.getPointDurability());
         }
 
-        [TestMethod]
+        [Test]
         public void whenThereIsNotEnoughDurabilityABlankIsWritten()
         {
             pencil = new Pencil(5, 0, 0);
 
             Assert.AreEqual("abcd f  ", pencil.Write("abcdEfgh"));
 
-            
+
         }
 
-        [TestMethod]
+        [Test]
         public void whenPencilIsSharpenedLengthIsReducedByOne()
         {
             pencil = new Pencil(5, 1, 0);
 
             pencil.Write("aaaaa");
             pencil.Sharpen();
-            
+
             Assert.AreEqual(0, pencil.getLength());
 
         }
 
-        [TestMethod]
+        [Test]
         public void whenPencilLengthIsZeroPencilCannotBeSharpened()
         {
             pencil = new Pencil(5, 0, 0);
 
             pencil.Write("aaaaa");
             pencil.Sharpen();
-            
+
             Assert.AreEqual("     ", pencil.Write("aaaaa"));
 
         }
 
-        [TestMethod]
+        [Test]
         public void whenGivenTwoStringsReplaceTheLastInstanceOfTheFirstStringInTheSecondStringWithBlankSpaces()
         {
             Assert.AreEqual("Erase last instance of word          in this string", pencil.Erase("instance", "Erase last instance of word instance in this string"));
         }
 
-        [TestMethod]
+        [Test]
         public void whenGivenAStringToEraseThatIsNotInTheStartingStringReturnTheStartingString()
         {
             Assert.AreEqual("Nothing should erase", pencil.Erase("bacon", "Nothing should erase"));
         }
 
-        [TestMethod]
+        [Test]
         public void whenEraserIsUsedDegradeEraserDurabilityByOnePerCharacter()
         {
             pencil = new Pencil(5, 1, 10);
@@ -114,7 +127,7 @@ namespace PencilDurabilityKataTests
             Assert.AreEqual(0, pencil.getEraserDurability());
         }
 
-        [TestMethod]
+        [Test]
         public void whenEraserDurabilityIsZeroErasingStops()
         {
             pencil = new Pencil(5, 1, 8);
@@ -122,33 +135,33 @@ namespace PencilDurabilityKataTests
             Assert.AreEqual("Reduce Du        ", pencil.Erase(" Durability", "Reduce Durability"));
         }
 
-        [TestMethod]
+        [Test]
         public void whenGivenAStringEditWritesThatStringInTheFirstBlankSpace()
         {
             Assert.AreEqual("Edit Test Complete", pencil.Edit("Test", "Edit      Complete"));
         }
 
-        [TestMethod]
+        [Test]
         public void whenEditingASpaceWithAStringThatIsTooLongUseTheAtSymbolInstead()
         {
             Assert.AreEqual("This is no@ight", pencil.Edit("not", "This is   right"));
         }
 
-        [TestMethod]
+        [Test]
         public void whenNonLetterCharactersAreWrittenPointDurabilityDegradesByOne()
         {
             pencil.Write("!1,./'-_=0");
             Assert.AreEqual(90, pencil.getPointDurability());
         }
 
-        [TestMethod]
+        [Test]
         public void whenEditingAPaperPointStillDegrades()
         {
             pencil.Edit("Test", "Edit      Complete");
             Assert.AreEqual(96, pencil.getPointDurability());
         }
 
-        [TestMethod]
+        [Test]
         public void whenPointDurabilityIsAtZeroEditingStops()
         {
             pencil = new Pencil(3, 0, 0);
@@ -156,7 +169,7 @@ namespace PencilDurabilityKataTests
             Assert.AreEqual("Edit Tes  Complete", pencil.Edit("Test", "Edit      Complete"));
         }
 
-        [TestMethod]
+        [Test]
         public void whenPassedIntegerNEditWillEditTheNthBlankSpace()
         {
             Assert.AreEqual("Edit      Complete Test Again", pencil.Edit("Test", "Edit      Complete      Again", 2));
