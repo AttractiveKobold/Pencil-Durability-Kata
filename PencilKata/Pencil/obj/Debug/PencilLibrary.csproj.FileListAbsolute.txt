@@ -1,0 +1,6 @@
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\Pencil\bin\Debug\Pencil.dll
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\Pencil\bin\Debug\Pencil.pdb
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\Pencil\obj\Debug\PencilLibrary.csprojAssemblyReference.cache
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\Pencil\obj\Debug\PencilLibrary.csproj.CoreCompileInputs.cache
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\Pencil\obj\Debug\Pencil.dll
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\Pencil\obj\Debug\Pencil.pdb

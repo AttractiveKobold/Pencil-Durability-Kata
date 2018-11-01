@@ -1,0 +1,15 @@
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\bin\Debug\PencilKata.exe.config
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\bin\Debug\PencilKata.exe
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\bin\Debug\PencilKata.pdb
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\bin\Debug\nunit.framework.dll
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\bin\Debug\nunitlite.dll
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\bin\Debug\Pencil.dll
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\bin\Debug\Pencil.pdb
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\bin\Debug\nunit.framework.pdb
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\bin\Debug\nunit.framework.xml
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\bin\Debug\nunitlite.pdb
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\obj\Debug\PencilKata.csprojAssemblyReference.cache
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\obj\Debug\PencilKata.csproj.CoreCompileInputs.cache
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\obj\Debug\PencilKata.csproj.CopyComplete
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\obj\Debug\PencilKata.exe
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\PencilKata\obj\Debug\PencilKata.pdb
