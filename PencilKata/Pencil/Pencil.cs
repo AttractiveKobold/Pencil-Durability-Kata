@@ -112,12 +112,13 @@
         }
 
 
-        // blankSpaceToEdit is a paramater used to select which blank space to edit
-        // For example, if we want to edit the second blank space, then blankSpaceToEdit would be 2
-        // The fundtion defaults to the first blank space if one is not specified
+
         public string Edit(string toWrite, string startingString, int blankSpaceToEdit = 1)
         {
             int index = getIndexOfBlankSpace(blankSpaceToEdit, startingString);
+            
+            if (index == -1)
+                return startingString; 
 
             char[] startArray = startingString.ToCharArray();
             char[] writeArray = toWrite.ToCharArray();
@@ -127,10 +128,12 @@
                 if (pointDurability == 0)
                     break;
 
+
                 if (startArray[i] == ' ')
                     startArray[i] = writeArray[j];
                 else
                     startArray[i] = '@';
+
 
                 pointDurability--;
             }
@@ -138,6 +141,7 @@
             return new string(startArray);
         }
 
+        //returns -1 if the specified blank space does not exist
         private int getIndexOfBlankSpace(int blankSpaceToEdit, string text)
         {
             int index = 0;
@@ -146,6 +150,9 @@
             {
                 for (int i = index; i < text.Length - 1; i++)
                 {
+                    if (index == -1)
+                        return index; //blank space was not found
+
                     if (!char.IsWhiteSpace(text[i]))
                     {
                         index = i;
@@ -153,10 +160,13 @@
                     }
                 }
 
-                index = text.IndexOf("  ", index) + 1;
+                index = text.IndexOf("  ", index);
 
                 blankSpaceToEdit--;
             }
+
+            if (index > 0)
+                index++;
 
             return index;
         }

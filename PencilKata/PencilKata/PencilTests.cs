@@ -174,5 +174,11 @@ namespace PencilKata
         {
             Assert.AreEqual("Edit      Complete Test Again", pencil.Edit("Test", "Edit      Complete      Again", 2));
         }
+
+        [Test]
+        public void whenPassedABlankSpaceThatDoesNotExistEditWillNotEditAnything()
+        {
+            Assert.AreEqual("This     Should     Not     Change", pencil.Edit("aaa", "This     Should     Not     Change", 20));
+        }
     }
 }
