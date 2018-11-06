@@ -9,5 +9,5 @@
 NUnit.3.11.0
 Release
 TestResult.xml
-packages/
+!packages/
 !msbuild.exe
