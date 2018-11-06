@@ -12,10 +12,10 @@
         private const int lowercaseLetterPointDegredation = 1;
         private const int eraserDegredationAmount = 1;
 
-        public int getPointDurability() => pointDurability;
-        public int getMaxDurability() => maxDurability;
-        public int getLength() => length;
-        public int getEraserDurability() => eraserDurability;
+        public int getPointDurability() { return pointDurability; }
+        public int getMaxDurability() { return maxDurability; }
+        public int getLength() { return length; }
+        public int getEraserDurability() { return eraserDurability; }
 
 
 
