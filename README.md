@@ -1,5 +1,10 @@
 # Pencil-Durability-Kata
-To run the tests for the Pencil Class Library, simply open a file explorer and navigate to this git repository.
-From there navigate to  \PencilKata\PencilKata\bin\Debug and run the PencilKata.exe
-
-Alternatively you could run this exe from your computer's command line.
+Steps to building and running this program:
+1.  Open your command line program
+2.  Navigate to this repository (this will be the directory with msbuild.exe in it)
+3.  Run the command "msbuild pencilkata\pencilkata\pencilkata.csproj" (without the quotation marks)
+      This builds the project
+4.  Run the command "pencilkata\pencilkata\bin\debug\pencilkata.exe" (without the quotation marks)
+      This runs the program
+      
+The program runs the tests located in the penciltests.cs file and does not have any actual interation since this kata was for a class library.
