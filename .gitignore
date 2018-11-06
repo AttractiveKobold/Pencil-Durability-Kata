@@ -6,8 +6,7 @@
 !Pencil.dll
 !Pencil.pdb
 !PencilKata.pdb
-NUnit.3.11.0
-Release
+!NUnit.3.11.0
 TestResult.xml
 !packages/
 !msbuild.exe

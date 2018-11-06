@@ -1,0 +1,5 @@
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\Pencil\bin\Release\Pencil.dll
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\Pencil\bin\Release\Pencil.pdb
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\Pencil\obj\Release\Pencil.dll
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\PencilKata\Pencil\obj\Release\Pencil.pdb
+C:\Users\bacon\Documents\GitHub\Pencil-Durability-Kata\pencilkata\Pencil\obj\Release\PencilLibrary.csprojResolveAssemblyReference.cache
