@@ -29,11 +29,11 @@
 
 
 
-        public string Write(string toWrite, string startingString = "")
+        public string Write(string textToWrite, string startingString = "")
         {
             string output = startingString;
 
-            foreach (char c in toWrite)
+            foreach (char c in textToWrite)
             {
 
                 if (degradePoint(c))
@@ -85,14 +85,14 @@
 
 
 
-        public string Erase(string toErase, string startingString)
+        public string Erase(string textToErase, string startingString)
         {
-            if (!startingString.Contains(toErase))
+            if (!startingString.Contains(textToErase))
                 return startingString;
 
-            int index = startingString.LastIndexOf(toErase);
+            int index = startingString.LastIndexOf(textToErase);
 
-            string stringSection = startingString.Substring(index, toErase.Length);
+            string stringSection = startingString.Substring(index, textToErase.Length);
 
             char[] sectionArray = stringSection.ToCharArray();
 
@@ -108,37 +108,37 @@
 
             stringSection = new string(sectionArray);
 
-            return startingString.Remove(index, toErase.Length).Insert(index, stringSection);
+            return startingString.Remove(index, textToErase.Length).Insert(index, stringSection);
         }
 
+        
 
-
-        public string Edit(string toWrite, string startingString, int blankSpaceToEdit = 1)
+        public string Edit(string textToWrite, string startingString, int blankSpaceToEdit = 1)
         {
             int index = getIndexOfBlankSpace(blankSpaceToEdit, startingString);
             
             if (index == -1)
                 return startingString; 
 
-            char[] startArray = startingString.ToCharArray();
-            char[] writeArray = toWrite.ToCharArray();
+            char[] textToEditArray = startingString.ToCharArray();
+            char[] textToWriteArray = textToWrite.ToCharArray();
 
-            for (int i = index, j = 0; i < (index + writeArray.Length) && i < startingString.Length - 1; i++, j++)
+            for (int i = index, j = 0; i < (index + textToWriteArray.Length) && i < startingString.Length - 1; i++, j++)
             {
                 if (pointDurability == 0)
                     break;
 
 
-                if (startArray[i] == ' ')
-                    startArray[i] = writeArray[j];
+                if (textToEditArray[i] == ' ')
+                    textToEditArray[i] = textToWriteArray[j];
                 else
-                    startArray[i] = '@';
+                    textToEditArray[i] = '@';
 
 
                 pointDurability--;
             }
 
-            return new string(startArray);
+            return new string(textToEditArray);
         }
 
         //returns -1 if the specified blank space does not exist
@@ -164,7 +164,6 @@
                 }
 
                 index = text.IndexOf("  ", index);
-
                 blankSpaceToEdit--;
             }
 
