@@ -36,7 +36,7 @@
             foreach (char c in textToWrite)
             {
 
-                if (degradePoint(c))
+                if (DegradePoint(c))
                     output += c;
                 else
                     output += ' ';
@@ -45,14 +45,14 @@
             return output;
         }
 
-        private bool degradePoint(char myChar)
+        private bool DegradePoint(char myChar)
         {
             if (char.IsUpper(myChar) && pointDurability >= capitalLetterPointDegredation)
             {
                 pointDurability -= capitalLetterPointDegredation;
 
             }
-            else if (checkIfShouldDegradeLower(myChar))
+            else if (CheckIfShouldDegradeLower(myChar))
             {
                 pointDurability -= lowercaseLetterPointDegredation;
             }
@@ -64,7 +64,7 @@
             return true;
         }
 
-        private bool checkIfShouldDegradeLower(char myChar)
+        private bool CheckIfShouldDegradeLower(char myChar)
         {
             if (!char.IsUpper(myChar) && !(myChar == ' ' || myChar == '\n') && pointDurability >= lowercaseLetterPointDegredation)
                 return true;
@@ -76,7 +76,7 @@
 
         public string Edit(string textToWrite, string startingString, int blankSpaceToEdit = 1)
         {
-            int index = getIndexOfBlankSpace(blankSpaceToEdit, startingString);
+            int index = GetIndexOfBlankSpace(blankSpaceToEdit, startingString);
 
             if (index == -1)
                 return startingString;
@@ -86,7 +86,7 @@
 
             for (int i = index, j = 0; i < (index + textToWriteArray.Length) && i < startingString.Length - 1; i++, j++)
             {
-                if (degradePoint(textToWriteArray[j]) || textToWriteArray[j] == '\n')
+                if (DegradePoint(textToWriteArray[j]) || textToWriteArray[j] == '\n')
                 {
                     if (textToEditArray[i] == ' ')
                         textToEditArray[i] = textToWriteArray[j];
@@ -100,7 +100,7 @@
         }
 
         //returns -1 if the specified blank space does not exist
-        private int getIndexOfBlankSpace(int blankSpaceToEdit, string text)
+        private int GetIndexOfBlankSpace(int blankSpaceToEdit, string text)
         {
             int index = 0;
 
