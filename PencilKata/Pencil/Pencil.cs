@@ -90,25 +90,24 @@
             if (!startingString.Contains(textToErase))
                 return startingString;
 
-            int index = startingString.LastIndexOf(textToErase);
+            string erasedText = "";
+            int indexOfTextToErase = startingString.LastIndexOf(textToErase);
+            char[] textToEraseArray = textToErase.ToCharArray();
 
-            string stringSection = startingString.Substring(index, textToErase.Length);
-
-            char[] sectionArray = stringSection.ToCharArray();
-
-            for (int i = sectionArray.Length - 1; i > -1; i--)
+            for (int i = textToEraseArray.Length - 1; i > -1; i--)
             {
                 if (eraserDurability < eraserDegredationAmount)
                     break;
 
-                if (sectionArray[i] != ' ')
+                if (textToEraseArray[i] != ' ')
                     eraserDurability -= eraserDegredationAmount;
-                sectionArray[i] = ' ';
+
+                textToEraseArray[i] = ' ';
             }
 
-            stringSection = new string(sectionArray);
+            erasedText = new string(textToEraseArray);
 
-            return startingString.Remove(index, textToErase.Length).Insert(index, stringSection);
+            return startingString.Remove(indexOfTextToErase, textToErase.Length).Insert(indexOfTextToErase, erasedText);
         }
 
         
