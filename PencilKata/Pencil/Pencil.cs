@@ -83,6 +83,8 @@
             }
         }
 
+
+
         public string Erase(string toErase, string startingString)
         {
             if (!startingString.Contains(toErase))
@@ -109,33 +111,18 @@
             return startingString.Remove(index, toErase.Length).Insert(index, stringSection);
         }
 
-        public string Edit(string toWrite, string startingString, int n = 1)
+
+        // blankSpaceToEdit is a paramater used to select which blank space to edit
+        // For example, if we want to edit the second blank space, then blankSpaceToEdit would be 2
+        // The fundtion defaults to the first blank space if one is not specified
+        public string Edit(string toWrite, string startingString, int blankSpaceToEdit = 1)
         {
-            int index = startingString.IndexOf("  ") + 1;
-            n--;
-
-            while (n > 0)
-            {
-                for (int i = index; i < startingString.Length - 1; i++)
-                {
-                    if (!char.IsWhiteSpace(startingString[i]))
-                    {
-                        index = i;
-                        break;
-                    }
-                }
-
-                index = startingString.IndexOf("  ", index) + 1;
-
-                n--;
-            }
+            int index = getIndexOfBlankSpace(blankSpaceToEdit, startingString);
 
             char[] startArray = startingString.ToCharArray();
             char[] writeArray = toWrite.ToCharArray();
 
-            int j = 0;
-
-            for (int i = index; i < (index + writeArray.Length) && i < startingString.Length - 1; i++)
+            for (int i = index, j = 0; i < (index + writeArray.Length) && i < startingString.Length - 1; i++, j++)
             {
                 if (pointDurability == 0)
                     break;
@@ -146,11 +133,32 @@
                     startArray[i] = '@';
 
                 pointDurability--;
-
-                j++;
             }
 
             return new string(startArray);
+        }
+
+        private int getIndexOfBlankSpace(int blankSpaceToEdit, string text)
+        {
+            int index = 0;
+
+            while (blankSpaceToEdit > 0)
+            {
+                for (int i = index; i < text.Length - 1; i++)
+                {
+                    if (!char.IsWhiteSpace(text[i]))
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+
+                index = text.IndexOf("  ", index) + 1;
+
+                blankSpaceToEdit--;
+            }
+
+            return index;
         }
     }
 }
