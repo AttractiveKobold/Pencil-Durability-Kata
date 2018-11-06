@@ -17,6 +17,8 @@
         public int getLength() => length;
         public int getEraserDurability() => eraserDurability;
 
+
+
         public Pencil(int pointDurability, int length, int eraserDurability)
         {
             this.pointDurability = pointDurability;
@@ -25,42 +27,52 @@
             this.eraserDurability = eraserDurability;
         }
 
+
+
         public string Write(string toWrite, string startingString = "")
         {
             string output = startingString;
 
             foreach (char c in toWrite)
             {
-                if (char.IsUpper(c))
-                {
-                    if (pointDurability >= capitalLetterPointDegredation)
-                        pointDurability -= capitalLetterPointDegredation;
-                    else
-                    {
-                        output += ' ';
-                        continue;
-                    }
-                }
-                else if (c == ' ' || c == '\n')
-                {
-                    //do nothing because ' ' and '\n' do not degrade point durability
-                }
-                else
-                {
-                    if (pointDurability >= lowercaseLetterPointDegredation)
-                        pointDurability -= lowercaseLetterPointDegredation;
-                    else
-                    {
-                        output += ' ';
-                        continue;
-                    }
-                }
 
-                output += c;
+                if (degradePoint(c))
+                    output += c;
+                else
+                    output += ' ';
             }
 
             return output;
         }
+
+        private bool degradePoint(char myChar)
+        {
+            if (char.IsUpper(myChar) && pointDurability >= capitalLetterPointDegredation)
+            {
+                pointDurability -= capitalLetterPointDegredation;
+
+            }
+            else if (checkIfShouldDegradeLower(myChar))
+            { 
+                    pointDurability -= lowercaseLetterPointDegredation;
+            }
+            else
+            {
+                    return false;
+            }
+
+            return true;
+        }
+
+        private bool checkIfShouldDegradeLower(char myChar)
+        {
+            if (!char.IsUpper(myChar) && !(myChar == ' ' || myChar == '\n') && pointDurability >= lowercaseLetterPointDegredation)
+                return true;
+            else
+                return false;
+        }
+
+
 
         public void Sharpen()
         {
