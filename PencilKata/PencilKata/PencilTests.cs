@@ -158,7 +158,7 @@ namespace PencilKata
         public void whenEditingAPaperPointStillDegrades()
         {
             pencil.Edit("Test", "Edit      Complete");
-            Assert.AreEqual(96, pencil.getPointDurability());
+            Assert.AreEqual(95, pencil.getPointDurability());
         }
 
         [Test]
@@ -166,7 +166,7 @@ namespace PencilKata
         {
             pencil = new Pencil(3, 0, 0);
 
-            Assert.AreEqual("Edit Tes  Complete", pencil.Edit("Test", "Edit      Complete"));
+            Assert.AreEqual("Edit Te   Complete", pencil.Edit("Test", "Edit      Complete"));
         }
 
         [Test]
@@ -185,6 +185,14 @@ namespace PencilKata
         public void whenGivenAStringThatStartsWithABlankSpaceEditWillNotLeaveABlankAtTheBeginningOfTheString()
         {
             Assert.AreEqual("False: this string begins with a blank space", pencil.Edit("False:", "       this string begins with a blank space"));
+        }
+
+        [Test]
+        public void whenEditingPointDegradesBasedOnWhatIsWritten()
+        {
+            pencil.Edit("A b C d", "Test        String");
+
+            Assert.AreEqual(94, pencil.getPointDurability());
         }
     }
 }

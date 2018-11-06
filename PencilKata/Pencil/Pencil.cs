@@ -53,12 +53,12 @@
 
             }
             else if (checkIfShouldDegradeLower(myChar))
-            { 
-                    pointDurability -= lowercaseLetterPointDegredation;
+            {
+                pointDurability -= lowercaseLetterPointDegredation;
             }
             else
             {
-                    return false;
+                return false;
             }
 
             return true;
@@ -110,31 +110,28 @@
             return startingString.Remove(indexOfTextToErase, textToErase.Length).Insert(indexOfTextToErase, erasedText);
         }
 
-        
+
 
         public string Edit(string textToWrite, string startingString, int blankSpaceToEdit = 1)
         {
             int index = getIndexOfBlankSpace(blankSpaceToEdit, startingString);
-            
+
             if (index == -1)
-                return startingString; 
+                return startingString;
 
             char[] textToEditArray = startingString.ToCharArray();
             char[] textToWriteArray = textToWrite.ToCharArray();
 
             for (int i = index, j = 0; i < (index + textToWriteArray.Length) && i < startingString.Length - 1; i++, j++)
             {
-                if (pointDurability == 0)
-                    break;
+                if (degradePoint(textToWriteArray[j]) || textToWriteArray[j] == '\n')
+                {
+                    if (textToEditArray[i] == ' ')
+                        textToEditArray[i] = textToWriteArray[j];
+                    else
+                        textToEditArray[i] = '@';
+                }
 
-
-                if (textToEditArray[i] == ' ')
-                    textToEditArray[i] = textToWriteArray[j];
-                else
-                    textToEditArray[i] = '@';
-
-
-                pointDurability--;
             }
 
             return new string(textToEditArray);
