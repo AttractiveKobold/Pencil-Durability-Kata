@@ -74,44 +74,6 @@
 
 
 
-        public void Sharpen()
-        {
-            if (length > 0)
-            {
-                pointDurability = maxDurability;
-                length--;
-            }
-        }
-
-
-
-        public string Erase(string textToErase, string startingString)
-        {
-            if (!startingString.Contains(textToErase))
-                return startingString;
-
-            string erasedText = "";
-            int indexOfTextToErase = startingString.LastIndexOf(textToErase);
-            char[] textToEraseArray = textToErase.ToCharArray();
-
-            for (int i = textToEraseArray.Length - 1; i > -1; i--)
-            {
-                if (eraserDurability < eraserDegredationAmount)
-                    break;
-
-                if (textToEraseArray[i] != ' ')
-                    eraserDurability -= eraserDegredationAmount;
-
-                textToEraseArray[i] = ' ';
-            }
-
-            erasedText = new string(textToEraseArray);
-
-            return startingString.Remove(indexOfTextToErase, textToErase.Length).Insert(indexOfTextToErase, erasedText);
-        }
-
-
-
         public string Edit(string textToWrite, string startingString, int blankSpaceToEdit = 1)
         {
             int index = getIndexOfBlankSpace(blankSpaceToEdit, startingString);
@@ -168,5 +130,43 @@
 
             return index;
         }
+
+
+
+        public void Sharpen()
+        {
+            if (length > 0)
+            {
+                pointDurability = maxDurability;
+                length--;
+            }
+        }
+
+
+
+        public string Erase(string textToErase, string startingString)
+        {
+            if (!startingString.Contains(textToErase))
+                return startingString;
+
+            string erasedText = "";
+            int indexOfTextToErase = startingString.LastIndexOf(textToErase);
+            char[] textToEraseArray = textToErase.ToCharArray();
+
+            for (int i = textToEraseArray.Length - 1; i > -1; i--)
+            {
+                if (eraserDurability < eraserDegredationAmount)
+                    break;
+
+                if (textToEraseArray[i] != ' ')
+                    eraserDurability -= eraserDegredationAmount;
+
+                textToEraseArray[i] = ' ';
+            }
+
+            erasedText = new string(textToEraseArray);
+
+            return startingString.Remove(indexOfTextToErase, textToErase.Length).Insert(indexOfTextToErase, erasedText);
+        }       
     }
 }
