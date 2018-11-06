@@ -146,6 +146,9 @@
         {
             int index = 0;
 
+            index = text.IndexOf("  ");
+            blankSpaceToEdit--;
+
             while (blankSpaceToEdit > 0)
             {
                 for (int i = index; i < text.Length - 1; i++)

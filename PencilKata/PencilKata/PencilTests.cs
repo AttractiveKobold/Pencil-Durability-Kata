@@ -180,5 +180,11 @@ namespace PencilKata
         {
             Assert.AreEqual("This     Should     Not     Change", pencil.Edit("aaa", "This     Should     Not     Change", 20));
         }
+
+        [Test]
+        public void whenGivenAStringThatStartsWithABlankSpaceEditWillNotLeaveABlankAtTheBeginningOfTheString()
+        {
+            Assert.AreEqual("False: this string begins with a blank space", pencil.Edit("False:", "       this string begins with a blank space"));
+        }
     }
 }
