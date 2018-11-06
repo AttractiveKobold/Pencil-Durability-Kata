@@ -8,6 +8,14 @@
         private int length = 0;
         private int eraserDurability = 0;
 
+        private const int capitalLetterPointDegredation = 2;
+        private const int lowercaseLetterPointDegredation = 1;
+        private const int eraserDegredationAmount = 1;
+
+        public int getPointDurability() => pointDurability;
+        public int getMaxDurability() => maxDurability;
+        public int getLength() => length;
+        public int getEraserDurability() => eraserDurability;
 
         public Pencil(int pointDurability, int length, int eraserDurability)
         {
@@ -17,16 +25,6 @@
             this.eraserDurability = eraserDurability;
         }
 
-
-        public int getPointDurability() => pointDurability;
-
-        public int getMaxDurability() => maxDurability;
-
-        public int getLength() => length;
-
-        public int getEraserDurability() => eraserDurability;
-
-
         public string Write(string toWrite, string startingString = "")
         {
             string output = startingString;
@@ -35,8 +33,8 @@
             {
                 if (char.IsUpper(c))
                 {
-                    if (pointDurability >= 2)
-                        pointDurability -= 2;
+                    if (pointDurability >= capitalLetterPointDegredation)
+                        pointDurability -= capitalLetterPointDegredation;
                     else
                     {
                         output += ' ';
@@ -49,8 +47,8 @@
                 }
                 else
                 {
-                    if (pointDurability >= 1)
-                        pointDurability -= 1;
+                    if (pointDurability >= lowercaseLetterPointDegredation)
+                        pointDurability -= lowercaseLetterPointDegredation;
                     else
                     {
                         output += ' ';
@@ -86,11 +84,11 @@
 
             for (int i = sectionArray.Length - 1; i > -1; i--)
             {
-                if (eraserDurability <= 0)
+                if (eraserDurability < eraserDegredationAmount)
                     break;
 
                 if (sectionArray[i] != ' ')
-                    eraserDurability--;
+                    eraserDurability -= eraserDegredationAmount;
                 sectionArray[i] = ' ';
             }
 
