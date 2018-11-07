@@ -7,4 +7,4 @@ Steps to building and running this program:
 4.  Run the command "pencilkata\pencilkata\bin\debug\pencilkata.exe" (without the quotation marks)
       This runs the program
       
-The program runs the tests located in the penciltests.cs file and does not have any actual interation since this kata was for a class library.
+The program runs the tests located in the penciltests.cs file and does not have any actual interaction since this kata was for a class library.
